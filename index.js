@@ -16,8 +16,6 @@ dotenv.config();
 app.use(express.json());
 app.use("/images", cors(), express.static(path.join(__dirname, "/images")));
 
-const PORT = 5000;
-
 mongoose
   .connect(process.env.MONGO_URL)
   .then(console.log("connected to mongo"))
@@ -44,6 +42,6 @@ app.use("/api/conversations", cors(), conversationRoute);
 app.use("/api/messages", cors(), messageRoute);
 app.use("/api/mail", cors(), mailRoute);
 
-app.listen(PORT, () => {
-  console.log("server running in " + PORT);
+app.listen(process.env.HEROKU_URL || 5000, () => {
+  console.log("server running");
 });
