@@ -13,6 +13,7 @@ const path = require("path");
 const app = express();
 dotenv.config();
 app.use(express.json());
+const PORT = process.env.PORT || 5000;
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -26,6 +27,6 @@ app.use("/api/conversations", cors(), conversationRoute);
 app.use("/api/messages", cors(), messageRoute);
 app.use("/api/mail", cors(), mailRoute);
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("server running");
 });
