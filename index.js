@@ -7,6 +7,7 @@ const postRoute = require("./routes/posts");
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
 const mailRoute = require("./routes/mails");
+const searchRoute = require("./routes/search");
 const cors = require("cors");
 const path = require("path");
 
@@ -26,7 +27,8 @@ app.use("/api/posts", cors(), postRoute);
 app.use("/api/conversations", cors(), conversationRoute);
 app.use("/api/messages", cors(), messageRoute);
 app.use("/api/mail", cors(), mailRoute);
+app.use("/api/search", cors(), searchRoute);
 
 app.listen(PORT, () => {
-  console.log("server running");
+  console.log("server running on 5000");
 });
