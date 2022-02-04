@@ -123,7 +123,8 @@ router.get("/timeline/:userId", async (req, res) => {
         return Post.find({ userId: friendId });
       })
     );
-    res.status(200).json(friendPosts);
+    const FrndsPosts = friendPosts.map((frnds) => frnds[0]);
+    res.status(200).json(FrndsPosts);
   } catch (err) {
     res.status(500).json(err);
   }
